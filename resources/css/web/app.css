@@ -1,0 +1,10 @@
+@import 'tailwindcss' source(none);
+
+/* Chỉ quét class Tailwind trong phần web, không quét phần admin */
+@source '../../views/web';
+@source '../../js/web';
+
+/* Ẩn phần tử Alpine cho đến khi khởi tạo xong */
+[x-cloak] {
+    display: none !important;
+}

@@ -1,0 +1,57 @@
+<?php
+
+return [
+    'current_password' => 'Mật khẩu hiện tại không đúng.',
+    'required_with' => ':attribute không được để trống khi nhập :values.',
+    'required' => ':attribute không được để trống.',
+    'string' => ':attribute phải là chuỗi ký tự.',
+    'email' => ':attribute không đúng định dạng email.',
+    'integer' => ':attribute phải là số nguyên.',
+    'numeric' => ':attribute phải là số.',
+    'boolean' => ':attribute phải là đúng hoặc sai.',
+    'unique' => ':attribute đã tồn tại.',
+    'exists' => ':attribute không hợp lệ.',
+    'in' => ':attribute không hợp lệ.',
+    'regex' => ':attribute không đúng định dạng.',
+    'confirmed' => ':attribute xác nhận không khớp.',
+    'date' => ':attribute không phải là ngày hợp lệ.',
+    'url' => ':attribute không đúng định dạng URL.',
+    'image' => ':attribute phải là hình ảnh.',
+    'mimes' => ':attribute phải có định dạng: :values.',
+    'array' => ':attribute phải là mảng.',
+
+    'max' => [
+        'string' => ':attribute không được vượt quá :max ký tự.',
+        'numeric' => ':attribute không được lớn hơn :max.',
+        'file' => ':attribute không được lớn hơn :max KB.',
+        'array' => ':attribute không được có quá :max phần tử.',
+    ],
+    'min' => [
+        'string' => ':attribute phải có ít nhất :min ký tự.',
+        'numeric' => ':attribute phải lớn hơn hoặc bằng :min.',
+        'file' => ':attribute phải có dung lượng tối thiểu :min KB.',
+        'array' => ':attribute phải có ít nhất :min phần tử.',
+    ],
+
+    // Tên hiển thị của các trường trong thông báo lỗi
+    'attributes' => [
+        'name' => 'Tên',
+        'title' => 'tiêu đề',
+        'alt' => 'văn bản thay thế (alt)',
+        'slug' => 'Đường dẫn (slug)',
+        'description' => 'Mô tả',
+        'sort_order' => 'Thứ tự',
+        'is_active' => 'Trạng thái',
+        'email' => 'Email',
+        'password' => 'Mật khẩu',
+        'parent_id' => 'Danh mục cha',
+        'username' => 'Tên đăng nhập',
+        'id_role' => 'Vai trò',
+        'image' => 'Ảnh đại diện',
+        'note' => 'Ghi chú',
+        'password_confirmation' => 'Xác nhận mật khẩu',
+        'permissions' => 'Quyền',
+        'current_password' => 'Mật khẩu hiện tại',
+        'image_id' => 'Hình ảnh',
+    ],
+];
