@@ -21,7 +21,7 @@ const items = computed(() =>
             <Link
                 v-if="item.url"
                 :href="item.url"
-                class="rounded-[3px] border px-2 py-0.5 text-[13px]"
+                class="rounded-[3px] border px-2 py-0.5 text-[14px]"
                 :class="item.active
                     ? 'border-indigo-600 bg-indigo-600 text-white'
                     : 'border-slate-300 bg-white text-indigo-600 hover:border-indigo-600'"
@@ -30,7 +30,7 @@ const items = computed(() =>
             </Link>
             <span
                 v-else
-                class="rounded-[3px] border border-slate-200 bg-slate-50 px-2 py-0.5 text-[13px] text-slate-400"
+                class="rounded-[3px] border border-slate-200 bg-slate-50 px-2 py-0.5 text-[14px] text-slate-400"
             >
                 {{ item.text }}
             </span>

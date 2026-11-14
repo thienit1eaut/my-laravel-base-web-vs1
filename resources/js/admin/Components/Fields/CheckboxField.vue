@@ -9,7 +9,7 @@ const model = defineModel({ type: Boolean, default: false });
 
 <template>
     <div>
-        <label class="flex items-center gap-2 text-[13px] text-slate-700">
+        <label class="flex items-center gap-2 text-[14px] text-slate-700">
             <input v-model="model" type="checkbox" />
             {{ label }}
         </label>

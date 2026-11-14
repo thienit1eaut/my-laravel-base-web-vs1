@@ -8,9 +8,13 @@ import Pagination from '../../Components/UI/Pagination.vue';
 import Badge from '../../Components/UI/Badge.vue';
 import Button from '../../Components/UI/Button.vue';
 import SelectField from '../../Components/Fields/SelectField.vue';
+import QuickToggle from '../../Components/UI/QuickToggle.vue';
 import { usePermission } from '../../Composables/usePermission.js';
 
 const { can } = usePermission();
+// Sửa nhanh ngay trên dòng: cần quyền sửa module; server kiểm tra lại (AdminController::quickUpdate)
+const canQuick = () => can('accounts.update');
+const quickUrl = (row) => `/admin/accounts/${row.id}/quick`;
 
 defineOptions({ layout: AdminLayout });
 
@@ -112,7 +116,16 @@ const remove = (account) => {
         </template>
 
         <template #cell-is_active="{ row }">
-            <Badge :variant="row.is_active ? 'success' : 'danger'">
+            <!-- Không cho tự khóa chính mình (server cũng chặn) -->
+            <QuickToggle
+                v-if="canQuick('is_active')"
+                :url="quickUrl(row)"
+                field="is_active"
+                :value="row.is_active"
+                :disabled="row.id === page.props.auth.user.id"
+                label="Hoạt động"
+            />
+            <Badge v-else :variant="row.is_active ? 'success' : 'danger'">
                 {{ row.is_active ? 'Hoạt động' : 'Đã khóa' }}
             </Badge>
         </template>

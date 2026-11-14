@@ -11,16 +11,30 @@ use Illuminate\Routing\Controllers\Middleware;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class BrandController implements HasMiddleware
+class BrandController extends AdminController implements HasMiddleware
 {
     public static function middleware(): array
     {
         return [
             new Middleware('can:brands.view', only: ['index']),
             new Middleware('can:brands.create', only: ['create', 'store']),
-            new Middleware('can:brands.update', only: ['edit', 'update']),
+            new Middleware('can:brands.update', only: ['edit', 'update', 'quick']),
             new Middleware('can:brands.delete', only: ['destroy']),
         ];
+    }
+
+    /** Trường được sửa nhanh ngay trên trang danh sách => luật kiểm tra (xem AdminController::quickUpdate). */
+    protected function quickRules(): array
+    {
+        return [
+            'is_active' => ['required', 'boolean'],
+            'sort_order' => ['required', 'integer', 'min:0', 'max:65535'],
+        ];
+    }
+
+    public function quick(Request $request, Brand $brand): RedirectResponse
+    {
+        return $this->quickUpdate($request, $brand);
     }
 
     public function index(Request $request): Response
@@ -75,7 +89,7 @@ class BrandController implements HasMiddleware
     {
         return Inertia::render('Brands/Edit', [
             'brand' => [
-                ...$brand->only(['id', 'name', 'slug', 'description', 'image_id', 'sort_order', 'is_active']),
+                ...$brand->only(['id', 'name', 'slug', 'description', 'image_id', 'sort_order', 'is_active', 'meta_title', 'meta_description', 'meta_key', 'no_index', 'no_follow']),
                 'image_url' => $brand->image_url,
             ],
             'title' => 'Sửa thương hiệu',

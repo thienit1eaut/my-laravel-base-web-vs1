@@ -47,7 +47,7 @@ onBeforeUnmount(() => timers.forEach((timer) => clearTimeout(timer)));
                 v-for="toast in toasts"
                 :key="toast.id"
                 role="status"
-                class="pointer-events-auto relative flex items-start gap-2 overflow-hidden rounded border border-slate-300 bg-white py-2 pl-4 pr-2 text-[13px] text-slate-800 shadow-lg"
+                class="pointer-events-auto relative flex items-start gap-2 overflow-hidden rounded border border-slate-300 bg-white py-2 pl-4 pr-2 text-[14px] text-slate-800 shadow-lg"
             >
                 <span
                     class="absolute inset-y-0 left-0 w-1"

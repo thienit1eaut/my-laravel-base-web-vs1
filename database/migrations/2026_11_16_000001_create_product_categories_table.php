@@ -1,0 +1,31 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    public function up(): void
+    {
+        Schema::create('product_categories', function (Blueprint $table) {
+            $table->id();
+            // Danh mục cha (null = danh mục gốc). Không cho xóa danh mục cha còn danh mục con.
+            $table->foreignId('parent_id')->nullable()->constrained('product_categories')->restrictOnDelete();
+            $table->string('name', 150)->unique();
+            $table->string('slug', 160)->unique();
+            $table->text('description')->nullable();
+            $table->foreignId('image_id')->nullable()->constrained('medias')->nullOnDelete();
+            $table->string('meta_title', 160)->nullable();
+            $table->string('meta_description', 320)->nullable();
+            $table->unsignedSmallInteger('sort_order')->default(0);
+            $table->boolean('is_active')->default(true);
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        Schema::dropIfExists('product_categories');
+    }
+};

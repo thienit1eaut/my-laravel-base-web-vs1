@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\Concerns\HasSeoMeta;
 use App\Models\Concerns\HasSlug;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
@@ -9,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Brand extends Model
 {
+    use HasSeoMeta;
     use HasSlug;
 
     protected $fillable = [
@@ -18,6 +20,8 @@ class Brand extends Model
         'image_id',
         'sort_order',
         'is_active',
+        'meta_title',
+        'meta_description',
     ];
 
     protected function casts(): array

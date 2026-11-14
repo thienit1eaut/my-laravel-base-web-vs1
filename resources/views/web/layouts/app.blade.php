@@ -4,6 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>@yield('title', config('app.name'))</title>
+    @hasSection('description')
+        <meta name="description" content="@yield('description')">
+    @endif
+    @hasSection('keywords')
+        <meta name="keywords" content="@yield('keywords')">
+    @endif
+    @hasSection('robots')
+        <meta name="robots" content="@yield('robots')">
+    @endif
+    @hasSection('canonical')
+        <link rel="canonical" href="@yield('canonical')">
+    @endif
 
     @vite(['resources/css/web/app.css', 'resources/js/web/app.js'])
 </head>
@@ -19,7 +31,8 @@
             <nav :class="open ? 'flex' : 'hidden'" class="w-full flex-col gap-2 pt-4 text-sm md:flex md:w-auto md:flex-row md:gap-6 md:pt-0">
                 <a href="{{ route('home') }}" class="hover:text-emerald-600">Trang chủ</a>
                 <a href="#" class="hover:text-emerald-600">Sản phẩm</a>
-                <a href="#" class="hover:text-emerald-600">Tin tức</a>
+                <a href="{{ route('products.index') }}" class="hover:text-emerald-600">Sản phẩm</a>
+                <a href="{{ route('articles.index') }}" class="hover:text-emerald-600">Bài viết</a>
                 <a href="#" class="hover:text-emerald-600">Liên hệ</a>
             </nav>
         </div>

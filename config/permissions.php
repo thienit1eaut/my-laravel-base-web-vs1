@@ -25,6 +25,53 @@ return [
             'actions' => ['view', 'create', 'update', 'delete'],
         ],
 
+        'article-categories' => [
+            'name' => 'Danh mục bài viết',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'tags' => [
+            'name' => 'Thẻ bài viết',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'articles' => [
+            'name' => 'Bài viết',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'product-categories' => [
+            'name' => 'Danh mục sản phẩm',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'products' => [
+            'name' => 'Sản phẩm',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'product-tags' => [
+            'name' => 'Thẻ sản phẩm',
+            'actions' => ['view', 'create', 'update', 'delete'],
+        ],
+
+        'cache' => [
+            'name' => 'Bộ nhớ đệm',
+            'actions' => [
+                'view',
+                'clear-web' => 'Xóa cache trang web',
+                'clear-admin' => 'Xóa cache quản trị',
+            ],
+        ],
+
+        'languages' => [
+            'name' => 'Ngôn ngữ',
+            'actions' => [
+                'view', 'create', 'update',
+                'default' => 'Đặt ngôn ngữ chính',
+            ],
+        ],
+
         'accounts' => [
             'name' => 'Tài khoản',
             'actions' => ['view', 'create', 'update', 'delete'],
@@ -48,16 +95,5 @@ return [
                 'trash.empty' => 'Dọn sạch thùng rác',
             ],
         ],
-
-        // Ví dụ khi làm module Sản phẩm sau này:
-        // 'products' => [
-        //     'name' => 'Sản phẩm',
-        //     'actions' => [
-        //         'view', 'create', 'update', 'delete',
-        //         'images.view' => 'Xem hình ảnh',
-        //         'images.create' => 'Thêm hình ảnh',
-        //         'images.delete' => 'Xóa hình ảnh',
-        //     ],
-        // ],
     ],
 ];

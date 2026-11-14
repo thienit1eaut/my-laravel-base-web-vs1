@@ -8,13 +8,14 @@ use App\Models\Role;
 use App\Models\User;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Routing\Controllers\HasMiddleware;
 use Illuminate\Routing\Controllers\Middleware;
 use Illuminate\Support\Facades\Storage;
 use Inertia\Inertia;
 use Inertia\Response;
 
-class AccountController implements HasMiddleware
+class AccountController extends AdminController implements HasMiddleware
 {
     public function __construct(private PermissionChecker $permissions)
     {
@@ -25,9 +26,36 @@ class AccountController implements HasMiddleware
         return [
             new Middleware('can:accounts.view', only: ['index']),
             new Middleware('can:accounts.create', only: ['create', 'store']),
-            new Middleware('can:accounts.update', only: ['edit', 'update']),
+            new Middleware('can:accounts.update', only: ['edit', 'update', 'quick']),
             new Middleware('can:accounts.delete', only: ['destroy']),
         ];
+    }
+
+    /** Trường được sửa nhanh ngay trên trang danh sách => luật kiểm tra (xem AdminController::quickUpdate). */
+    protected function quickRules(): array
+    {
+        return [
+            'is_active' => ['required', 'boolean'],
+        ];
+    }
+
+    /** Giống trang sửa: không quản lý tài khoản thuộc vai trò vượt quyền; không tự khóa chính mình. */
+    protected function quickDeny(Request $request, Model $record, array $data): ?string
+    {
+        if (! $this->permissions->canAssignRole($request->user(), $record->role)) {
+            return 'Bạn không có quyền quản lý tài khoản thuộc vai trò này.';
+        }
+
+        if ($record->is($request->user()) && array_key_exists('is_active', $data) && ! $data['is_active']) {
+            return 'Bạn không thể tự khóa tài khoản đang đăng nhập.';
+        }
+
+        return null;
+    }
+
+    public function quick(Request $request, User $account): RedirectResponse
+    {
+        return $this->quickUpdate($request, $account);
     }
 
     public function index(Request $request): Response

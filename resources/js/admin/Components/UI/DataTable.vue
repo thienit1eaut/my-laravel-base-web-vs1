@@ -47,7 +47,7 @@ watch(
         <!-- Thanh thao tác hàng loạt: chỉ hiện khi có dòng được chọn -->
         <div
             v-if="selectable && selected.length > 0"
-            class="mb-2 flex flex-wrap items-center gap-3 rounded border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[13px] text-indigo-800"
+            class="mb-2 flex flex-wrap items-center gap-3 rounded border border-indigo-200 bg-indigo-50 px-3 py-1.5 text-[14px] text-indigo-800"
         >
             <span>Đã chọn <strong>{{ selected.length }}</strong> dòng</span>
 
@@ -59,7 +59,7 @@ watch(
         </div>
 
         <div class="overflow-x-auto rounded border border-slate-300 bg-white shadow-[0_1px_1px_rgba(0,0,0,0.04)]">
-            <table class="w-full text-left text-[13px]">
+            <table class="w-full text-left text-[14px]">
                 <thead class="border-b border-slate-300 text-slate-800">
                     <tr>
                         <th v-if="selectable" class="w-9 px-2.5 py-2">

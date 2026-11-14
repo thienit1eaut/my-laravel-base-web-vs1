@@ -48,11 +48,11 @@ const clear = () => {
 
 <template>
     <div>
-        <span v-if="label" class="block text-[13px] font-semibold text-slate-800">{{ label }}</span>
+        <span v-if="label" class="block text-[14px] font-semibold text-slate-800">{{ label }}</span>
 
         <div class="mt-1 flex items-center gap-3">
             <div
-                class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-300 bg-slate-50 text-center text-[11px] text-slate-400"
+                class="flex h-20 w-20 shrink-0 items-center justify-center overflow-hidden rounded-full border border-slate-300 bg-slate-50 text-center text-[12px] text-slate-400"
             >
                 <img v-if="shownUrl" :src="shownUrl" alt="" class="h-full w-full object-cover" />
                 <span v-else>Chưa có ảnh</span>

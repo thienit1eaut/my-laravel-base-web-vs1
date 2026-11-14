@@ -168,7 +168,7 @@ const copyUrl = async (url) => {
         <div
             role="button"
             tabindex="0"
-            class="flex cursor-pointer flex-col items-center justify-center gap-1 rounded border-2 border-dashed px-4 py-5 text-center text-[13px] transition-colors"
+            class="flex cursor-pointer flex-col items-center justify-center gap-1 rounded border-2 border-dashed px-4 py-5 text-center text-[14px] transition-colors"
             :class="
                 dragging
                     ? 'border-indigo-600 bg-indigo-50 text-indigo-700'
@@ -204,7 +204,7 @@ const copyUrl = async (url) => {
     </div>
 
     <!-- Lọc theo loại tệp -->
-    <div class="mb-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-[13px]">
+    <div class="mb-3 flex flex-wrap items-center gap-x-1 gap-y-1 text-[14px]">
         <template v-for="(tab, index) in tabs" :key="tab.value">
             <span v-if="index > 0" class="text-slate-300">|</span>
             <button
@@ -221,7 +221,7 @@ const copyUrl = async (url) => {
     <div class="mb-3 flex flex-wrap items-center gap-3">
         <SearchInput v-model="search" placeholder="Tìm theo tên, tiêu đề..." />
 
-        <label v-if="can('medias.delete') && medias.data.length" class="flex items-center gap-1.5 text-[13px]">
+        <label v-if="can('medias.delete') && medias.data.length" class="flex items-center gap-1.5 text-[14px]">
             <input type="checkbox" :checked="allChecked" @change="toggleAll" />
             Chọn tất cả
         </label>
@@ -259,8 +259,8 @@ const copyUrl = async (url) => {
                 />
                 <span v-else class="flex h-full flex-col items-center justify-center gap-1 p-2 text-slate-500">
                     <Icon :name="typeIcons[media.type]" size="h-8 w-8" />
-                    <span class="text-[11px] font-semibold uppercase">{{ media.extension }}</span>
-                    <span class="line-clamp-2 break-all text-center text-[11px]">{{ media.name }}</span>
+                    <span class="text-[12px] font-semibold uppercase">{{ media.extension }}</span>
+                    <span class="line-clamp-2 break-all text-center text-[12px]">{{ media.name }}</span>
                 </span>
             </button>
 
@@ -274,7 +274,7 @@ const copyUrl = async (url) => {
         </div>
     </div>
 
-    <div v-else class="rounded border border-slate-300 bg-white py-10 text-center text-[13px] text-slate-500">
+    <div v-else class="rounded border border-slate-300 bg-white py-10 text-center text-[14px] text-slate-500">
         {{ filters.search || filters.type ? 'Không tìm thấy tệp nào.' : 'Thư viện chưa có tệp nào.' }}
     </div>
 
@@ -315,7 +315,7 @@ const copyUrl = async (url) => {
                 </div>
             </div>
 
-            <div class="max-h-[70vh] space-y-3 overflow-y-auto pr-1 text-[13px]">
+            <div class="max-h-[70vh] space-y-3 overflow-y-auto pr-1 text-[14px]">
                 <dl class="space-y-1 text-slate-600">
                     <div class="flex justify-between gap-2">
                         <dt>Loại tệp</dt>

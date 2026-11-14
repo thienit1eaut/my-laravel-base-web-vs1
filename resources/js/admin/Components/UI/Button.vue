@@ -8,7 +8,7 @@ defineProps({
 });
 
 const base =
-    'inline-flex items-center justify-center gap-1 rounded-[3px] border px-2.5 py-1 text-[13px] leading-5 transition-colors disabled:cursor-not-allowed disabled:opacity-60';
+    'inline-flex items-center justify-center gap-1 rounded-[3px] border px-2.5 py-1 text-[14px] leading-5 transition-colors disabled:cursor-not-allowed disabled:opacity-60';
 
 const variants = {
     primary: 'border-indigo-600 bg-indigo-600 text-white hover:border-indigo-700 hover:bg-indigo-700',

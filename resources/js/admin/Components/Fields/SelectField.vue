@@ -17,13 +17,13 @@ const model = defineModel();
 
 <template>
     <div>
-        <label v-if="label" :for="name" class="block text-[13px] font-semibold text-slate-800">{{ label }}</label>
+        <label v-if="label" :for="name" class="block text-[14px] font-semibold text-slate-800">{{ label }}</label>
         <select
             :id="name"
             v-model="model"
             :name="name"
             v-bind="$attrs"
-            class="block w-full rounded-[4px] border bg-white px-2 py-1 text-[13px] leading-5 text-slate-800 focus:outline-none focus:ring-1"
+            class="block w-full rounded-[4px] border bg-white px-2 py-1 text-[14px] leading-5 text-slate-800 focus:outline-none focus:ring-1"
             :class="[
                 label ? 'mt-1' : '',
                 error

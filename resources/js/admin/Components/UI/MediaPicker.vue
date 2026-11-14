@@ -85,7 +85,7 @@ const go = (target) => {
             </a>
         </div>
 
-        <p v-if="failed" class="py-8 text-center text-[13px] text-red-600">
+        <p v-if="failed" class="py-8 text-center text-[14px] text-red-600">
             Không tải được thư viện ảnh. Bạn có thể thiếu quyền xem Thư viện ảnh.
         </p>
 
@@ -107,9 +107,9 @@ const go = (target) => {
             </button>
         </div>
 
-        <p v-else-if="!loading" class="py-8 text-center text-[13px] text-slate-500">Không có ảnh nào.</p>
+        <p v-else-if="!loading" class="py-8 text-center text-[14px] text-slate-500">Không có ảnh nào.</p>
 
-        <div v-if="lastPage > 1" class="mt-3 flex items-center justify-between text-[13px]">
+        <div v-if="lastPage > 1" class="mt-3 flex items-center justify-between text-[14px]">
             <Button variant="secondary" :disabled="page <= 1 || loading" @click="go(page - 1)">‹ Trước</Button>
             <span class="text-slate-500">Trang {{ page }} / {{ lastPage }}</span>
             <Button variant="secondary" :disabled="page >= lastPage || loading" @click="go(page + 1)">Sau ›</Button>

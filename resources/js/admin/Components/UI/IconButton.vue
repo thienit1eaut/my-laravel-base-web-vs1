@@ -6,6 +6,7 @@ defineProps({
     icon: { type: String, required: true },
     label: { type: String, required: true }, // hiện khi rê chuột, đồng thời là nhãn cho trình đọc màn hình
     href: String,                            // có href = liên kết, không có = nút bấm
+    external: Boolean,                       // true = mở href ở tab mới (trang web công khai)
     variant: { type: String, default: 'default' }, // default | danger
 });
 
@@ -16,12 +17,24 @@ const colors = {
 </script>
 
 <template>
-    <Link
-        v-if="href"
+    <a
+        v-if="href && external"
         :href="href"
+        target="_blank"
+        rel="noopener"
         :title="label"
         :aria-label="label"
         class="inline-flex rounded-md p-1.2"
+        :class="colors[variant]"
+    >
+        <Icon :name="icon" />
+    </a>
+    <Link
+        v-else-if="href"
+        :href="href"
+        :title="label"
+        :aria-label="label"
+        class="inline-flex rounded-md p-1.5"
         :class="colors[variant]"
     >
         <Icon :name="icon" />

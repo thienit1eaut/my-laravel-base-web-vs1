@@ -9,9 +9,14 @@ import Badge from '../../Components/UI/Badge.vue';
 import Button from '../../Components/UI/Button.vue';
 import SearchInput from '../../Components/Fields/SearchInput.vue';
 import Icon from '../../Components/UI/Icon.vue';
+import QuickToggle from '../../Components/UI/QuickToggle.vue';
+import QuickNumber from '../../Components/UI/QuickNumber.vue';
 import { usePermission } from '../../Composables/usePermission.js';
 
 const { can } = usePermission();
+// Sửa nhanh ngay trên dòng: cần quyền sửa module; server kiểm tra lại (AdminController::quickUpdate)
+const canQuick = () => can('brands.update');
+const quickUrl = (row) => `/admin/brands/${row.id}/quick`;
 
 defineOptions({ layout: AdminLayout });
 
@@ -75,8 +80,20 @@ const remove = (brand) => {
             </span>
         </template>
 
+        <template #cell-sort_order="{ row }">
+            <QuickNumber v-if="canQuick('sort_order')" :url="quickUrl(row)" field="sort_order" :value="row.sort_order" />
+            <template v-else>{{ row.sort_order }}</template>
+        </template>
+
         <template #cell-is_active="{ row }">
-            <Badge :variant="row.is_active ? 'success' : 'gray'">
+            <QuickToggle
+                v-if="canQuick('is_active')"
+                :url="quickUrl(row)"
+                field="is_active"
+                :value="row.is_active"
+                label="Hiển thị"
+            />
+            <Badge v-else :variant="row.is_active ? 'success' : 'gray'">
                 {{ row.is_active ? 'Hiển thị' : 'Ẩn' }}
             </Badge>
         </template>

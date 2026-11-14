@@ -19,7 +19,21 @@ const menu = [
     {
         label: 'Sản phẩm',
         icon: 'tag',
-        children: [{ label: 'Thương hiệu', href: '/admin/brands', permission: 'brands.view' }],
+        children: [
+            { label: 'Danh mục sản phẩm', href: '/admin/product-categories', permission: 'product-categories.view' },
+            { label: 'Danh sách sản phẩm', href: '/admin/products', permission: 'products.view' },
+            { label: 'Thẻ sản phẩm', href: '/admin/product-tags', permission: 'product-tags.view' },
+            { label: 'Thương hiệu', href: '/admin/brands', permission: 'brands.view' },
+        ],
+    },
+    {
+        label: 'Bài viết',
+        icon: 'document',
+        children: [
+            { label: 'Danh mục bài viết', href: '/admin/article-categories', permission: 'article-categories.view' },
+            { label: 'Danh sách bài viết', href: '/admin/articles', permission: 'articles.view' },
+            { label: 'Thẻ bài viết', href: '/admin/tags', permission: 'tags.view' },
+        ],
     },
     { label: 'Thư viện ảnh', href: '/admin/medias', icon: 'photo', permission: 'medias.view' },
     {
@@ -28,6 +42,14 @@ const menu = [
         children: [
             { label: 'Tài khoản', href: '/admin/accounts', permission: 'accounts.view' },
             { label: 'Vai trò', href: '/admin/roles', permission: 'roles.view' },
+        ],
+    },
+    {
+        label: 'Hệ thống',
+        icon: 'menu',
+        children: [
+            { label: 'Ngôn ngữ', href: '/admin/languages', permission: 'languages.view' },
+            { label: 'Bộ nhớ đệm', href: '/admin/cache', permission: 'cache.view' },
         ],
     },
 ];
@@ -54,7 +76,7 @@ const toggle = (group) => {
 
 <template>
     <aside
-        class="fixed inset-y-0 left-0 z-40 flex w-44 flex-col bg-slate-900 text-[13px] text-slate-100 transition-transform md:translate-x-0"
+        class="fixed inset-y-0 left-0 z-40 flex w-54 flex-col bg-slate-900 text-[14px] text-slate-100 transition-transform md:translate-x-0"
         :class="open ? 'translate-x-0' : '-translate-x-full'"
     >
         <!-- Logo -->
@@ -72,7 +94,7 @@ const toggle = (group) => {
                 <Link
                     v-if="!item.children"
                     :href="item.href"
-                    class="flex items-center gap-2 px-3 py-2 hover:text-wp-light"
+                    class="flex items-center gap-2 px-3 py-2 font-semibold hover:text-wp-light"
                     :class="isActive(item.href) ? 'bg-indigo-600 text-white hover:text-white' : ''"
                 >
                     <Icon :name="item.icon" size="h-[18px] w-[18px]" />
@@ -83,7 +105,7 @@ const toggle = (group) => {
                 <div v-else>
                     <button
                         type="button"
-                        class="flex w-full items-center gap-2 px-3 py-2 text-left hover:text-wp-light"
+                        class="flex w-full items-center gap-2 px-3 py-2 font-semibold text-left hover:text-wp-light"
                         :class="hasActiveChild(item) ? 'bg-indigo-600 text-white hover:text-white' : ''"
                         :aria-expanded="isOpen(item)"
                         @click="toggle(item)"
@@ -114,7 +136,7 @@ const toggle = (group) => {
         </nav>
 
         <!-- Bản quyền -->
-        <div class="shrink-0 border-t border-white/10 px-3 py-2 text-[11px] text-slate-400">
+        <div class="shrink-0 border-t border-white/10 px-3 py-2 text-[12px] text-slate-400">
             &copy; {{ year }} {{ page.props.appName }}
         </div>
     </aside>

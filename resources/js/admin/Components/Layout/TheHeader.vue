@@ -68,7 +68,7 @@ const logout = () => router.post('/admin/logout');
 
                             <span class="hidden text-left leading-tight sm:block">
                                 <span class="block text-xs font-semibold text-white">{{ user?.name }}</span>
-                                <span v-if="user?.username" class="block text-[11px] text-slate-400">
+                                <span v-if="user?.username" class="block text-[12px] text-slate-400">
                                     @{{ user.username }}
                                 </span>
                             </span>

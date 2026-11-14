@@ -17,6 +17,7 @@ class CheckPermission
         'store' => 'create',
         'edit' => 'update',
         'update' => 'update',
+        'quick' => 'update', // sửa nhanh ngoài trang danh sách
         'destroy' => 'delete',
     ];
 

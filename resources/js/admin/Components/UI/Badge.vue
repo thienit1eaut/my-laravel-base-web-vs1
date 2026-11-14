@@ -15,7 +15,7 @@ const classes = {
 
 <template>
     <span
-        class="inline-block rounded-full px-1.5 py-px text-[11px] font-medium"
+        class="inline-block rounded-full px-1.5 py-px text-[12px] font-medium"
         :class="classes[variant] ?? classes.gray"
     >
         <slot />

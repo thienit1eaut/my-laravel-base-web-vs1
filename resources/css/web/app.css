@@ -1,4 +1,5 @@
 @import 'tailwindcss' source(none);
+@import '../rich-content.css';
 
 /* Chỉ quét class Tailwind trong phần web, không quét phần admin */
 @source '../../views/web';

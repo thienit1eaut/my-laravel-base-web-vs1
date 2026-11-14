@@ -46,7 +46,7 @@ const submit = () =>
             :error="form.errors.image"
         />
 
-        <p class="text-[13px] text-slate-600">
+        <p class="text-[14px] text-slate-600">
             Vai trò: <strong class="text-slate-800">{{ profile.role_name ?? 'Chưa có' }}</strong>
         </p>
 
@@ -71,7 +71,7 @@ const submit = () =>
         />
 
         <div class="border-t border-slate-200 pt-4">
-            <h3 class="mb-3 text-[13px] font-semibold text-slate-800">Đổi mật khẩu</h3>
+            <h3 class="mb-3 text-[14px] font-semibold text-slate-800">Đổi mật khẩu</h3>
 
             <div class="space-y-4">
                 <InputField

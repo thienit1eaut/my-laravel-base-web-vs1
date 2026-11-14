@@ -33,7 +33,7 @@ const clear = () => {
 
 <template>
     <div>
-        <span v-if="label" class="block text-[13px] font-semibold text-slate-800">{{ label }}</span>
+        <span v-if="label" class="block text-[14px] font-semibold text-slate-800">{{ label }}</span>
 
         <div class="mt-1 flex items-center gap-3">
             <div

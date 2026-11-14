@@ -5,7 +5,7 @@ import FormCard from '../../Components/UI/FormCard.vue';
 import InputField from '../../Components/Fields/InputField.vue';
 import SelectField from '../../Components/Fields/SelectField.vue';
 import TextareaField from '../../Components/Fields/TextareaField.vue';
-import CheckboxField from '../../Components/Fields/CheckboxField.vue';
+import ToggleField from '../../Components/Fields/ToggleField.vue';
 import ImageUpload from '../../Components/Fields/ImageUpload.vue';
 
 defineOptions({ layout: AdminLayout });
@@ -101,6 +101,6 @@ const submit = () =>
 
         <TextareaField v-model="form.note" name="note" label="Ghi chú" rows="3" :error="form.errors.note" />
 
-        <CheckboxField v-model="form.is_active" label="Đang hoạt động (được phép đăng nhập)" :error="form.errors.is_active" />
+        <ToggleField v-model="form.is_active" label="Đang hoạt động (được phép đăng nhập)" :error="form.errors.is_active" />
     </FormCard>
 </template>

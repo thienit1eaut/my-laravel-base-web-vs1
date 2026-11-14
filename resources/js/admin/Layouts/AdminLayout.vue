@@ -19,7 +19,7 @@ watch(
 </script>
 
 <template>
-    <div class="min-h-screen md:pl-44">
+    <div class="min-h-screen md:pl-54">
         <TheSidebar :open="sidebarOpen" />
         <div v-if="sidebarOpen" class="fixed inset-0 z-30 bg-black/40 md:hidden" @click="sidebarOpen = false" />
 
